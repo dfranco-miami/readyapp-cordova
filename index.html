@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+
+    <link href="css/themes/3/meeting-room.css" rel="stylesheet" />
+    <link href="css/themes/3/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <link href="lib/jqm/1.4.5/jquery.mobile.structure-1.4.5.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    
+    <title>ReadyNow App</title>
+</head>
+<body>
+    <div data-role="page" id="page-index">
+        <div data-role="header" data-theme="a" data-position="fixed"  style="" >
+            <h1 style="">ReadyNow App</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <h2 class="mc-text-center">Welcome!</h2>
+            <p class="mc-top-margin-1-5"><b>Existing Users</b></p>
+            <a href="#page-signin" class="ui-btn ui-btn-b ui-corner-all">Sign In</a>
+            <p class="mc-top-margin-1-5"><b>Don't have an account?</b></p>
+            <a href="#page-signup" class="ui-btn ui-btn-b ui-corner-all">Sign Up</a>
+            <p></p>
+        </div><!-- /content -->
+    </div><!-- /page -->
+    
+    <div data-role="page" id="page-signin">
+        <div data-role="header" data-theme="a" data-position="fixed">
+            <a href="#page-index" data-icon="home" data-iconpos="notext" data-transition="slide" data-direction="reverse"></a>
+            <h1>ReadyNow App</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <h3>Sign In</h3>
+            <div id="ctn-err" class="bi-invisible"></div>
+            <label for="txt-email-address">Email Address</label>
+            <input type="text" name="txt-email-address" id="txt-email-address" value="">
+            <label for="txt-password">Password</label>
+            <input type="password" name="txt-password" id="txt-password" value="">
+            <fieldset data-role="controlgroup">                
+                <label><input type="checkbox" name="chk-keep-signed-in" id="chk-keep-signed-in"> Keep me signed in</label>
+            </fieldset>
+            <!--
+            <a href="#dlg-invalid-credentials" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all bi-top-margin-1-5">Submit</a>
+            -->
+            <button id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
+            
+            <p class="bi-top-margin-1-5"><a href="#begin-password-reset-page">Can't access your account?</a></p>
+            
+            <!--popup-->
+            <div data-role="popup" id="dlg-invalid-credentials" data-dismissible="false" style="max-width:400px;">
+                <div role="main" class="ui-content">
+                    <h3 class="mc-text-danger">Login Failed</h3>
+                    <p>Did you enter the right credentials?</p>
+                    <div class="mc-text-center"><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
+                </div>
+            </div>
+            <!-- /popup -->
+        </div><!-- /content -->
+    </div><!-- /page -->
+    <div data-role="page" id="page-signup">
+        <div class="bi-header" data-role="header" data-theme="a" data-position="fixed">
+            <a href="#page-index" data-icon="home" data-iconpos="notext" data-transition="slide" data-direction="reverse"></a>
+            <h1>ReadyNow App</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <h3>Business Sign Up</h3>
+            <div id="ctn-err" class="bi-invisible"></div>
+            
+            <label for="txt-business-name">Busines Name</label>
+            <input type="text" name="txt-business-name" id="txt-business-name" value="">
+            <label for="txt-service">Service</label>
+            <input type="text" name="txt-service" id="txt-service" value="">
+            
+            <label for="txt-first-name">First Name</label>
+            <input type="text" name="txt-first-name" id="txt-first-name" value="">
+            <label for="txt-last-name">Last Name</label>
+            <input type="text" name="txt-last-name" id="txt-last-name" value="">
+            <label for="txt-email-address">Email Address</label>
+            <input type="text" name="txt-email-address" id="txt-email-address" value="">
+            <label for="txt-password">Password</label>
+            <input type="password" name="txt-password" id="txt-password" value="">
+            <label for="txt-password-confirm">Confirm Password</label>
+            <input type="password" name="txt-password-confirm" id="txt-password-confirm" value="">
+            
+            <button id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
+            
+            <!-- popup -->
+            <div data-role="popup" id="dlg-sign-up-sent" data-dismissible="false" style="max-width:400px;">
+                <div data-role="header">
+                    <h1>Almost done...</h1>
+                </div>
+                <div role="main" class="ui-content">
+                    <h3>Confirm Your Email Address</h3>
+                    <p>We sent you an email with instructions on how to confirm your email address. Please check your inbox and follow the instructions in the email.</p>
+                    <div class="mc-text-center"><a href="sign-in.html" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
+
+                </div>
+            </div><!-- /popup -->
+        </div><!-- /content -->
+    </div><!-- /page -->
+    <div data-role="page" id="page-signup-succeeded">
+        <div data-role="header" data-theme="a">
+            <h1>ReadyNow App</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <h2 class="mc-text-center">Registration Succeeded</h2>
+            <p class="mc-top-margin-1-5">Congratulations!  You are now registered.</p>
+            <a href="#page-signin" class="ui-btn ui-btn-b ui-corner-all">Sign In</a>
+            <p></p>
+        </div><!-- /content -->
+    </div><!-- /page -->
+    
+    
+    <!-- main -->
+    <div data-role="page" id="page-jobs">
+        <div class="bi-header" data-role="header" data-theme="a" data-position="fixed">
+            <h1>ReadyNow App</h1>
+            <a href="#page-job-editor" class="ui-btn-right" data-theme="a" data-icon="plus">New</a>
+        </div><!-- /header -->
+        
+        <div role="main" id="jobs-list-ctn" class="ui-content">
+            <div id="ctn-err" class="bi-invisible"></div>
+            <!-- The hard-coded list used to be here -->
+        </div><!-- /content -->
+    </div><!-- /page -->
+    
+    <div data-role="page" id="page-job-editor">
+        <div class="bi-header" data-role="header" data-theme="a" data-position="fixed">
+            <a href="#page-jobs" data-icon="home" data-iconpos="notext" data-transition="slide" data-direction="reverse"></a>
+            <h1>ReadyNow App</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            
+            <h3>job</h3>
+            <div id="ctn-err" class="bi-invisible"></div>
+            
+            <input type="hidden" name="txt-job-id" id="txt-job-id" value="">
+            
+            <label for="txt-client-name">Client Name</label>
+            <input type="text" name="txt-client-name" id="txt-client-name" value="">
+            
+            <label for="txt-service"> Service</label>
+            <input type="text" name="txt-service" id="txt-service" value="">
+            
+            <label for="txt-date-due">Due Date</label>
+            <input type="text" name="txt-date-due" id="txt-date-due" value="">
+            
+            <label for="txt-hours">Hours</label>
+            <input type="text" name="txt-hours" id="txt-hours" value="">
+            
+            <label for="txt-phone">Phone</label>
+            <input type="text" name="txt-phone" id="txt-phone" value="">
+            
+            <label for="txt-email">Email</label>
+            <input type="text" name="txt-email" id="txt-email" value="">
+            
+            <button id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
+            
+            <input type="button" class="btn btn-positive btn-block" id="sendMessage" value="Send Message">
+            
+        </div><!-- /content -->
+    </div><!-- /page -->
+
+
+    <script src="cordova.js" type="text/javascript"></script>
+
+    <script src="lib/jquery/2.1.4/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="lib/jqm/1.4.5/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+    
+    <script src="lib/fastclick/fastclick.min.js" type="text/javascript"></script>
+    
+    <script src="js/api-messages.js" type="text/javascript"></script>
+    <script src="js/settings.js" type="text/javascript"></script>
+    <script src="js/session.js" type="text/javascript"></script>
+    <script src="js/signup-controller.js" type="text/javascript"></script>
+    <script src="js/signin-controller.js" type="text/javascript"></script>
+    <script src="js/jobs-controller.js" type="text/javascript"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+
+</body>
+</html>

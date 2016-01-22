@@ -1,0 +1,1 @@
+"# readyapp-cordova" 
